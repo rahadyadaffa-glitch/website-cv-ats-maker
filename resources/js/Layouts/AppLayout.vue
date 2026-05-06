@@ -58,7 +58,7 @@ const flash = computed(() => page.props.flash);
                     <a class="text-on-surface-variant hover:text-black transition-colors" href="#">Terms of Service</a>
                     <a class="text-on-surface-variant hover:text-black transition-colors" href="#">Cookies</a>
                 </div>
-                <div class="font-bold text-[12px] text-on-surface">© 2024 CV Builder. ALL RIGHTS RESERVED.</div>
+                <div class="font-bold text-[12px] text-on-surface">© 2026 CV Builder. ALL RIGHTS RESERVED.</div>
             </div>
         </footer>
     </div>

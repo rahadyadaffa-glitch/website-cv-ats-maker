@@ -24,7 +24,7 @@ const goBack = () => window.history.back();
                 <form @submit.prevent="submit" class="space-y-8">
                     <div>
                         <label class="label">Nama File CV</label>
-                        <input v-model="form.nama_file" type="text" class="input text-lg" placeholder="Contoh: CV Software Engineer 2024" required />
+                        <input v-model="form.nama_file" type="text" class="input text-lg" placeholder="Contoh: CV Software Engineer 2026" required />
                         <p v-if="form.errors.nama_file" class="mt-2 text-red-600 font-bold text-sm italic">{{ form.errors.nama_file }}</p>
                     </div>
 
