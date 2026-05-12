@@ -94,13 +94,26 @@ class CvController extends Controller
     }
 
     /**
-     * Daftar semua CV (draft list).
+     * Daftar semua Draft CV.
      */
     public function index(): Response
     {
-        $cvs = $this->cvService->getAll();
+        $cvs = $this->cvService->getAll('draft');
         return Inertia::render('Draft/Index', [
-            'cvs' => $cvs,
+            'cvs'   => $cvs,
+            'title' => 'Drafts'
+        ]);
+    }
+
+    /**
+     * Daftar semua CV yang sudah Selesai.
+     */
+    public function completed(): Response
+    {
+        $cvs = $this->cvService->getAll('completed');
+        return Inertia::render('Draft/Index', [
+            'cvs'   => $cvs,
+            'title' => 'Completed'
         ]);
     }
 }

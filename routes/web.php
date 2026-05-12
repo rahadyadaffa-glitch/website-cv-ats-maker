@@ -15,5 +15,6 @@ Route::delete('/cv/{cv}', [CvController::class, 'destroy'])->name('cv.destroy');
 Route::get('/cv/{cv}/download', [CvController::class, 'download'])->name('cv.download');
 Route::get('/cv/{cv}/preview', [CvController::class, 'preview'])->name('cv.preview');
 
-// Draft List
+// Draft & Completed List
 Route::get('/drafts', [CvController::class, 'index'])->name('cv.index');
+Route::get('/completed', [CvController::class, 'completed'])->name('cv.completed');

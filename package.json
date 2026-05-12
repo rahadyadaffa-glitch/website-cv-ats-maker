@@ -15,6 +15,9 @@
     },
     "dependencies": {
         "@inertiajs/vue3": "^3.0.3",
+        "@tiptap/pm": "^3.23.1",
+        "@tiptap/starter-kit": "^3.23.1",
+        "@tiptap/vue-3": "^3.23.1",
         "@vitejs/plugin-vue": "^6.0.6",
         "axios": "^1.16.0",
         "vue": "^3.5.33"

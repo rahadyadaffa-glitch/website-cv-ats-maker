@@ -13,23 +13,16 @@ const flash = computed(() => page.props.flash);
 <template>
     <div class="min-h-screen flex flex-col bg-[#f9f9f9] text-[#1b1b1b] font-body-md">
         <!-- Navigation (TopNavBar) -->
-        <nav v-if="!hideNav" class="bg-white w-full top-0 sticky border-b-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-50">
-            <div class="flex justify-between items-center px-6 py-2 max-w-full">
-                <Link :href="route('home')" class="font-headline-lg text-[24px] text-primary tracking-tighter font-black">CV Builder</Link>
-                <div class="hidden md:flex gap-8 font-button-text text-[14px]">
-                    <Link :href="route('home')" class="text-on-surface-variant hover:text-black transition-all px-2 py-1" :class="route().current('home') ? 'border-b-[3px] border-tertiary-container' : ''">Home</Link>
-                    <Link :href="route('cv.index')" class="text-on-surface-variant hover:text-black transition-all px-2 py-1" :class="route().current('cv.index') ? 'border-b-[3px] border-tertiary-container' : ''">Drafts</Link>
-                    <a class="text-on-surface-variant hover:text-black transition-all px-2 py-1" href="#">Help</a>
-                </div>
-                <div class="flex items-center gap-4">
-                    <button class="bg-[#FFFF00] text-black border-[3px] border-black rounded-full px-6 py-1 font-bold text-[14px] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none hidden md:block">
-                        Create New
-                    </button>
-                    <button class="text-primary hover:scale-105 transition-all">
-                        <span class="material-symbols-outlined" style="font-size: 32px;">account_circle</span>
-                    </button>
-                </div>
+        <nav v-if="!hideNav" class="bg-[#e1e1f5] w-full top-0 sticky border-b-4 border-black shadow-[0_8px_0px_0px_rgba(0,0,0,1)] z-50 flex items-center justify-between px-6 py-3 h-[72px]">
+            <div class="flex items-center">
+                <Link :href="route('home')" class="text-2xl md:text-3xl font-black italic uppercase tracking-tighter text-black leading-none">CV Builder</Link>
             </div>
+            <div class="hidden md:flex justify-center gap-8 font-black uppercase tracking-tighter text-[16px]">
+                <Link :href="route('home')" class="text-black hover:bg-[#e4e400] transition-all px-3 py-1 border-2 border-transparent hover:border-black active:shadow-none" :class="route().current('home') ? 'bg-[#e4e400] border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white/50 border-black/10'">Home</Link>
+                <Link :href="route('cv.index')" class="text-black hover:bg-[#e1e1f5] transition-all px-3 py-1 border-2 border-transparent hover:border-black active:shadow-none" :class="route().current('cv.index') || route().current('cv.completed') ? 'bg-[#e1e1f5] border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-white/50 border-black/10'">My CV</Link>
+                <a class="text-black hover:bg-[#ffd1dc] transition-all px-3 py-1 border-2 border-transparent hover:border-black active:shadow-none bg-white/50 border-black/10" href="/#how-it-works">Help</a>
+            </div>
+            <div class="flex items-center"></div>
         </nav>
 
         <!-- Main Content -->

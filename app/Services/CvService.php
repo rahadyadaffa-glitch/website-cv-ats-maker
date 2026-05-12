@@ -8,11 +8,15 @@ use Illuminate\Database\Eloquent\Collection;
 class CvService
 {
     /**
-     * Ambil semua CV, diurutkan dari yang paling baru diubah.
+     * Ambil CV berdasarkan status, diurutkan dari yang paling baru diubah.
      */
-    public function getAll(): Collection
+    public function getAll(?string $status = null): Collection
     {
-        return Cv::orderBy('updated_at', 'desc')->get();
+        $query = Cv::orderBy('updated_at', 'desc');
+        if ($status) {
+            $query->where('status', $status);
+        }
+        return $query->get();
     }
 
     /**
@@ -29,11 +33,18 @@ class CvService
     }
 
     /**
-     * Update isi content CV (dari form edit).
+     * Update isi content dan status CV (dari form edit).
      */
-    public function updateContent(Cv $cv, array $content): Cv
+    public function updateContent(Cv $cv, array $data): Cv
     {
-        $cv->update(['content' => $content]);
+        $status = $data['status'] ?? $cv->status;
+        unset($data['status']);
+        
+        $cv->update([
+            'content' => $data,
+            'status'  => $status
+        ]);
+
         return $cv->fresh();
     }
 
@@ -65,6 +76,7 @@ class CvService
                 'phone'     => '',
                 'location'  => '',
                 'linkedin'  => '',
+                'github'    => '',
                 'website'   => '',
             ],
             'summary'        => '',
@@ -74,6 +86,8 @@ class CvService
             'certifications' => [],
             'languages'      => [],
             'organizations'  => [],
+            'portfolio'      => [],
+            'portfolio_title'=> '',
         ];
     }
 }
